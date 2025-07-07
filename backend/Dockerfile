@@ -28,6 +28,9 @@ RUN npx prisma generate
 # Copy the rest of the application code
 COPY . .
 
+# Build TypeScript
+RUN npm run build
+
 # ---------- FINAL IMAGE ----------
 FROM base
 
