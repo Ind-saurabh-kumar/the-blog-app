@@ -22,12 +22,12 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 # Copy Prisma schema & generate client
-COPY backend/prisma ./prisma
+COPY prisma ./prisma
 RUN npx prisma generate
 
-# Copy tsconfig and source code from project root
-COPY ../tsconfig.json ./tsconfig.json
-COPY ../src ./src
+# Copy tsconfig and source code
+COPY tsconfig.json ./tsconfig.json
+COPY src ./src
 
 # Build TypeScript
 RUN npm run build
