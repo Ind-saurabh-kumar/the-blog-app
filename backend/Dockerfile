@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # ---------- BASE IMAGE ----------
-ARG NODE_VERSION=20.12.2
+ARG NODE_VERSION=18.16.0
 FROM node:${NODE_VERSION}-slim as base
 
 LABEL fly_launch_runtime="Node.js/Prisma"
@@ -22,15 +22,11 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 # Copy Prisma schema & generate client
-COPY prisma ./prisma
+COPY backend/prisma ./prisma
 RUN npx prisma generate
 
-# Copy tsconfig and source code
-COPY tsconfig.json ./tsconfig.json
-COPY src ./src
-
-# Build TypeScript
-RUN npm run build
+# Copy the rest of the application code
+COPY . .
 
 # ---------- FINAL IMAGE ----------
 FROM base
@@ -47,4 +43,3 @@ COPY --from=build /app /app
 EXPOSE 3000
 
 # Start the server
-CMD ["npm", "run", "start"]
