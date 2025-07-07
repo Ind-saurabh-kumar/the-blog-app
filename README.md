@@ -120,10 +120,3 @@ CLOUDINARY_API_KEY=API_KEY
 CLOUDINARY_API_SECRET=API_SECRET
 CLOUDINARY_CLOUD_NAME=CLOUD_NAME
 ```
-
-## Contact
-
--   LinkedIn: [Danyl Kecha](https://www.linkedin.com/in/danylkecha/)
--   Mail: danyl.kecha.uk@gmail.com
--   GitHub: [ke444a](https://github.com/ke444a)
--   Twitter: [@ke444a](https://twitter.com/ke444a)
