@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # ---------- BASE IMAGE ----------
-ARG NODE_VERSION=18.16.0
+ARG NODE_VERSION=18.18.0
 FROM node:${NODE_VERSION}-slim as base
 
 LABEL fly_launch_runtime="Node.js/Prisma"
